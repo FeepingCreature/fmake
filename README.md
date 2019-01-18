@@ -108,6 +108,7 @@ Note that tasks cannot be invoked explicitly from within fmake. That's because y
 as functions to be called - the `task` helper is solely meant for commandline use.
 
 To process tasks and their associated command line arguments, call `fmake();` at the end of your `build.js`.
+If a parameter is passed to `fmake()`, it is used as the default task to run when no tasks are specified.
 
 Note that tasks are entirely optional. Nothing stops you from calling build rules directly.
 

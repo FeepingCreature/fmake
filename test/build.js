@@ -1,6 +1,6 @@
 'use strict';
 
-const { print, file, task, fmake, sh } = require('..');
+const { print, file, task, fmake, sh } = require('fmake');
 
 function object(objectFile, sourceFile, headerFiles)
 {
@@ -34,4 +34,4 @@ task('build', 'Build the main binary.', () => {
         ['test2.h']);
 });
 
-fmake();
+fmake('build');

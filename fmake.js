@@ -98,7 +98,7 @@ function task(name, ...args)
     configuration.tasks.set(name, new Task(name, description, action));
 }
 
-function fmake()
+function fmake(default_task = null)
 {
     let runTasks = [];
     let argv = require('yargs')
@@ -116,6 +116,11 @@ function fmake()
     configuration.verbose = argv.verbose;
 
     let args = argv._;
+
+    if (default_task && args.length == 0)
+    {
+        args = [default_task]
+    }
 
     for (let arg of args)
     {

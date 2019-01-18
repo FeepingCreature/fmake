@@ -1,6 +1,6 @@
 {
   "name": "fmake",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "fmake, the functional make replacement, is a build automation tool that uses functions instead of rules to define dependencies.",
   "main": "fmake.js",
   "directories": {
