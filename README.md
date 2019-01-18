@@ -61,11 +61,17 @@ so that it is rebuilt when the source file is changed.
 
 ```
     file('file.o')
-        .depend(file('file.c'))
+        .depend('file.c')
         .build(() => {
             sh(`gcc -c -o file.o file.c`);
         });
 ```
+
+When `depend` is passed an array, this is equivalent to depending to every
+member of the array in sequence.
+
+When `depend` is passed a string, this is equivalent to calling
+`depend(file(parameter))`.
 
 ### Composing dependencies
 
@@ -74,7 +80,7 @@ You should never depend on generated files. Instead, your build rules should be 
 ```
     function compile(object, source) {
         return file(object)
-            .depend(file(source))
+            .depend(source)
             .build(() => {
                 sh(`gcc -c -o ${object} ${source}`);
             });

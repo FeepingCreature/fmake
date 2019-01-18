@@ -5,8 +5,8 @@ const { print, file, task, fmake, sh } = require('fmake');
 function object(objectFile, sourceFile, headerFiles)
 {
     return file(objectFile)
-        .depend(file(sourceFile))
-        .depend(headerFiles.map(headerFile => file(headerFile)))
+        .depend(sourceFile)
+        .depend(headerFiles)
         .build(() => {
             sh(`gcc -c -o ${objectFile} ${sourceFile}`);
         });
