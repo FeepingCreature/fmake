@@ -49,6 +49,9 @@ At its simplest, you can define a dependency of a file on a Javascript function 
 
 `file(filename)` returns a dependency on a file. It is violated if the file does not exist.
 
+IMPORTANT: Calling `file(filename)` does not "register" a dependency on `filename`! The dependency is evaluated
+purely in the `file().build()` call, and has no effects on later calls.
+
 Further dependencies can be added using the chainable `depend()` function.
 When a dependency is made to depend on another dependency, it is violated if the other dependency was violated.
 (But see "Age Adjustment below".)
