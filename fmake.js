@@ -39,24 +39,17 @@ function run(file, args = [])
         print(`> ${file} ${args.join(" ")}`);
     }
 
-    execFileSync(file, args);
+    return execFileSync(file, args);
 }
 
-function sh(cmd, options = null)
+function sh(cmd)
 {
     if (configuration.verbose)
     {
         print(`> ${cmd}`);
     }
 
-    if (options)
-    {
-        execSync(cmd, options);
-    }
-    else
-    {
-        execSync(cmd);
-    }
+    return execSync(cmd);
 }
 
 function file(filename)
